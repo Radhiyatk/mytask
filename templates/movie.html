@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+     {{movie.description}}
+{% endblock %}
+{% block title %}
+{% if category %}
+     {{movie.title}}- Vox Cinemas
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row my_prod_row_class">
+    <div class="mx_auto">
+        <p><a href="{% url 'movieapp:AllCategory' %}">Home</a>|<a href="{{movie.category.get_url}}">
+            {{movie.category}}</a>|{{movie.title}}</p>
+
+    </div>
+    <div class="container">
+    <br>
+<div class="row">
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+        <div style="min-width:18rem">
+            <img src="{{movie.poster.url}}" alt ="{{movie.title}}">
+        </div>
+    </div>
+    <div>
+    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+        <div>
+            <h1 class="my_prod_title">{{movie.title}}</h1>
+            <p class="text-justify my_prod_text">{{movie.desc}}</p>
+                        <h4>Stars In</h4>
+            <p class="text-justify my_prod_text">{{movie.actor}}</p>
+            <p class="text-justify my_prod_text">{{movie.actress}}</p>
+                         <h4>Reviews</h4>
+            <p class="text-justify my_prod_text">{{movie.review}}</p>
+                         <h4>Ratings</h4>
+            <p class="text-justify my_prod_text">{{movie.ratings}}</p>
+            <a class="nav_link" href="{{movie.ylink}}">{{movie.ylink}}</a><br>
+            <button name="review" type="submit" value="review">write a review</button>
+
+        </div>
+    </div>
+</div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+{% if category %}
+     {{category.description|truncatewords:155}}
+{% else %}
+     Welcome to Vox Cinemas where you can watch your favourite movies
+{% endif %}
+{% endblock %}
+{% block title %}
+{% if category %}
+     {{category.title}}- Vox Cinemas
+{% else %}
+      Watch movies Online-Vox Cinemas
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if category %}
+<div>
+<div class="row my-class-row">
+      <div class="max-auto">
+          <p><a href="{% url 'movieapp:AllCategory' %}">Block Busters</a></p>
+      </div>
+</div>
+</div>
+{% endif %}
+<div class="max-auto">
+    {% if category %}
+       <img  class="my_image" src="{{category.poster.url}}" alt="{{category.title}}">
+</div>
+<br>
+<div>
+    <h1 class="text-center my_title">{{category.title}}</h1>
+    <p class="text-justify" >{{category.desc}}</p>
+</div>
+{% else %}
+
+    <img class="my_image my_image_padding" src="{% static 'img/banner.png' %}" alt="Our products" >
+
+<div>
+    <h1 class="text-center my_title">Block Buster Movies</h1>
+    <p class="text-center" ></div>
+{% endif %}
+<div class="container">
+    <div class="row mx-auto ">
+        {% for movie in movies.object_list %}
+        <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4 ">
+            <div class="card text-center" style="min-width:18rem;">
+                <a href="{{movie.get_url}}"><img class="card-img-top my_image" src="{{movie.poster.url}}" alt="{{movie.title}}" ></a>
+                <div class="card-body">
+                    <h4>{{movie.title}}</h4>
+                    <p>{{movie.release_date}}</p>
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+
+<div class="mx-auto">
+    {% if movies.paginator.num_pages > 1 %}
+    <div class="text-center">
+        {% for pg in movies.paginator.page_range %}
+        <a href="?page={{pg}}" class="btn btn-light btn-sm {% if movies.number == pg %} active {% endif %}">{{pg}}</a>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</div>
+{% endblock %}

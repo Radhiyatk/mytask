@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>You can Add Movie here</h1>
+<form method="POST" action="add_movie" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <input type="text" name="title" placeholder="enter movie title"><br>
+    <input type="text" name="desc" placeholder="enter movie description"><br>
+    <input type="date" name="release_date" placeholder="enter release date"><br>
+    <input type="text" name="actor" placeholder="enter actor name"><br>
+    <input type="text" name="actress" placeholder="enter actress name"><br>
+    <input type="text" name="category" placeholder="enter movie Category"><br>
+    <input type="file" name="poster"><br>
+    <input type="url"  name="ylink" placeholder="enter Youtube link"><br>
+    <input type="submit" >
+
+</form>
+</body>
+</html>
+
+

@@ -10,5 +10,5 @@ def SearchQuery(request):
     query=None
     if 'q' in request.GET:
         query=request.GET.get('q')
-        movies=Movie.objects.all().filter(Q(title__contains=query) | Q(desc__contains=query))
+        movies=Movie.objects.all().filter(Q(name__contains=query) | Q(desc__contains=query))
     return  render(request,'search.html',{'query':query,'movies':movies})

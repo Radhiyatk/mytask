@@ -31,12 +31,12 @@
 </div>
 <br>
 <div>
-    <h1 class="text-center my_title">{{category.title}}</h1>
+    <p class="text-center my_title">{{category.title}}</p>
     <p class="text-justify" >{{category.desc}}</p>
 </div>
 {% else %}
 
-    <img class="my_image my_image_padding" src="{% static 'img/banner.png' %}" alt="Our products" >
+    <img class="my_image my_image_padding" src="{% static 'img/banner.png' %}" alt="Movies" >
 
 <div>
     <h1 class="text-center my_title">Block Buster Movies</h1>
@@ -47,9 +47,9 @@
         {% for movie in movies.object_list %}
         <div class="my_bottom_margin col-9 col-sm-12 col-md-4 col-lg-4 ">
             <div class="card text-center" style="min-width:18rem;">
-                <a href="{{movie.get_url}}"><img class="card-img-top my_image" src="{{movie.poster.url}}" alt="{{movie.title}}" ></a>
+                <a href="{{movie.get_url}}"><img class="card-img-top my_image" src="{{movie.poster.url}}" alt="{{movie.name}}" ></a>
                 <div class="card-body">
-                    <h4>{{movie.title}}</h4>
+                    <h4>{{movie.name}}</h4>
                     <p>{{movie.release_date}}</p>
                 </div>
 

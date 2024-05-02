@@ -1,25 +1,30 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Online Movie store</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="True" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+          </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active"  href="#"></a>
-        </li>
+
         <li class="nav-item">
           {% if user.is_authenticated %}
           <li>Hello {{user.username}}</li>
-           <li> <a class="nav-link" href="registerapp/logout">LOGOUT</a></li>
+           <li> <a class="nav-link" href="{% url 'registerapp:logout' %}">LOGOUT</a></li>
+          <li><a class="nav-link "  href="{% url 'movieapp:add_movie' %}">ADD MOVIE</a></li>
+
+
           {% else %}
-          <li><a class="nav-link" href="registerapp/register">REGISTER</a></li>
-          <li><a class="nav-link" href="registerapp/login">LOGIN</a></li>
+          <li><a class="nav-link" href="{% url 'registerapp:register' %}">REGISTER</a></li>
+          <li><a class="nav-link" href="{% url 'registerapp:login' %}">LOGIN</a></li>
+
         {% endif%}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Genres
+            GENRES
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="{% url 'movieapp:AllCategory' %}">All Categories</a></li>
@@ -37,5 +42,6 @@
                <button class="btn btn-outline-success" type="submit"><i class="fa-brands fa-searchengin"></i></button>
             </form>
     </div>
+  </div>
   </div>
 </nav>

@@ -24,7 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('registerapp/', include('registerapp.urls')),
     path('searchapp/', include('searchapp.urls')),
-    #path('user_app/',include('user_app.urls')),
     path('',include('movieapp.urls')),
 
 ]

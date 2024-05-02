@@ -25,7 +25,6 @@ SECRET_KEY = 'django-insecure-(a1%m%o4ewq=^!dmao8f-d^rm%gt+1*3j5%0q4t1#3*odhmp+y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -67,6 +66,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'movieapp.context_processors.menu_links',
+                #'movieapp.context_processors.menu_id',
 
             ],
         },
